@@ -1,0 +1,1 @@
+abrir cliente en dos pestañas diferentes

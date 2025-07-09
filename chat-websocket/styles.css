@@ -1,0 +1,47 @@
+body,
+html {
+    background-color: rgb(166, 165, 185);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    gap: 30px;
+}
+
+.chat {
+    height: 500px;
+    width: 500px;
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.header {
+    background-color: blue;
+}
+
+.input-form {
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input{
+    height: 100%;
+    width: 100%;
+}
+
+.btn-enviar{
+    background: blue;
+    border: none;
+    font-size: 1.5rem;
+    padding: 5px;
+    margin: 0;
+}
