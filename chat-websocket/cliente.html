@@ -8,30 +8,43 @@
 </head>
 
 <body>
+
     <div class="chat">
         <div class="header">
             <h2>Chat WebSocket</h2>
         </div>
-        <ul id="mensajes"></ul>
+        <div class="mensajes">
+            <div id="mensajes"></div>
+        </div>
+        <div class="input-form">
+            <input id="mensaje" placeholder="Escribe un mensaje" class="input" />
+            <button onclick="enviar()" class="btn-enviar">Enviar</button>
+        </div>
     </div>
-    <div class="input-form">
-        <input id="mensaje" placeholder="Escribe un mensaje" class="input"/>
-        <button onclick="enviar()" class="btn-enviar">Enviar</button>
-    </div>
-
 
     <script>
         const socket = new WebSocket("ws://localhost:8080");
 
-        socket.onmessage = (event) => {
-            const li = document.createElement("li");
-            li.textContent = event.data;
-            document.getElementById("mensajes").appendChild(li);
+
+        const clientId = Math.random().toString(36).substring(2, 10);
+
+        socket.onmessage = async (event) => {
+            const text = await event.data.text();
+            const data = JSON.parse(text);
+
+            const mensajito = document.createElement("div");
+            mensajito.textContent = data.text;
+            mensajito.className = data.sender === clientId ? "mio" : "otro";
+            document.getElementById("mensajes").appendChild(mensajito);
         };
 
         function enviar() {
             const input = document.getElementById("mensaje");
-            socket.send(input.value);
+            const mensaje = {
+                sender: clientId,
+                text: input.value
+            };
+            socket.send(JSON.stringify(mensaje));
             input.value = '';
         }
     </script>

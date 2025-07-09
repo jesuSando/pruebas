@@ -1,6 +1,7 @@
 body,
 html {
-    background-color: rgb(166, 165, 185);
+    background-color: #000000;
+    font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
@@ -10,20 +11,33 @@ html {
     height: 100vh;
     width: 100%;
     gap: 30px;
+    color: #76efaf;
 }
 
 .chat {
     height: 500px;
     width: 500px;
-    background-color: red;
+    background-color: #101826;
     display: flex;
     flex-direction: column;
-    border-radius: 20px;
+    border-radius: 10px;
+    border: 1px solid #00a34f;
     overflow: hidden;
+    padding: 20px;
+    gap: 20px;
 }
 
-.header {
-    background-color: blue;
+.header h2 {
+    margin: 0;
+    padding: 0;
+}
+
+.mensajes {
+    height: 100%;
+    width: 100%;
+    background-color: #000000;
+    border: 1px solid #00a34f;
+    border-radius: 5px;
 }
 
 .input-form {
@@ -31,17 +45,64 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 1px solid #00a34f;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 50px;
 }
 
-.input{
+.input {
     height: 100%;
     width: 100%;
+    background-color: #000000;
+    border: none;
+    color: #00a34f;
+    font-size: 1.2rem;
 }
 
-.btn-enviar{
-    background: blue;
+.btn-enviar {
+    background: #00a34f;
     border: none;
     font-size: 1.5rem;
-    padding: 5px;
+    height: 100%;
     margin: 0;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+#mensajes {
+    display: flex;
+    flex-direction: column;
+}
+
+#mensajes li {
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 8px;
+    max-width: 60%;
+    word-wrap: break-word;
+}
+
+.mio {
+    background: #dcf8c6;
+    align-self: flex-end;
+    margin-left: auto;
+    text-align: right;
+    width: auto;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    color: #000000;
+}
+
+.otro {
+    background: #eeeeee;
+    align-self: flex-start;
+    margin-right: auto;
+    text-align: left;
+    width: auto;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    color: #000000;
 }
